@@ -11,7 +11,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 4000;
 
-const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
+export const requestListener = async (req: IncomingMessage, res: ServerResponse) => {
   res.setHeader("Content-Type", "application/json");
 
   const url = req.url || "";
