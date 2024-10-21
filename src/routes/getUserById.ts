@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { getUserById } from "../usersController";
 import { validateUserId } from "../utils/validateUUID";
+import { handleError } from "../utils/errorHandler";
 
 const getUserByIdHandler = (
   req: IncomingMessage,
@@ -25,8 +26,7 @@ const getUserByIdHandler = (
         JSON.stringify({ message: "Invalid userId (must be a valid UUID)" })
       );
     } else {
-      res.writeHead(500);
-      res.end(JSON.stringify({ message: "Internal Server Error" }));
+       handleError(res, error);
     }
   }
 };

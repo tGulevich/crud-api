@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { deleteUser } from "../usersController";
 import { validateUserId } from "../utils/validateUUID";
+import { handleError } from "../utils/errorHandler";
 
 const deleteUserHandler = (
   req: IncomingMessage,
@@ -26,8 +27,7 @@ const deleteUserHandler = (
           JSON.stringify({ message: "Invalid userId (must be a valid UUID)" })
         );
       } else {
-        res.writeHead(500);
-        res.end(JSON.stringify({ message: "Internal Server Error" }));
+        handleError(res, error);
       }
     }
 };
