@@ -1,6 +1,6 @@
 import request from "supertest";
 import { createServer } from "http";
-import { requestListener } from "..";
+import { requestListener } from "../requestListener";
 
 const server = createServer(requestListener);
 server.listen(8000);

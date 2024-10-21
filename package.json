@@ -13,6 +13,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:prod": "webpack --mode production && node ./dist/index.js",
+    "start:multi": "ts-node src/cluster/cluster.ts",
     "test": "jest"
   },
   "devDependencies": {
